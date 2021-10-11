@@ -1,6 +1,4 @@
 import React from 'react';
-
-import { selectShopCollections } from '../../redux/shop/shop.selector.js';
 import CollectionsOverview from '../../components/collections-overview/collections-overview.component.jsx';
 import { Route } from 'react-router-dom'
 import CollectionPage from '../collection/collection.component.jsx';
