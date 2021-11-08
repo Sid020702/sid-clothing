@@ -1,29 +1,29 @@
 import React from 'react'
-import './checkout-item.styles.scss'
 import { connect } from 'react-redux';
-
+import { CheckoutItemComponent, ImageContainerComponent, QuantityComponent, ArrowComponent, ValueComponent, RemoveButtonComponent } from './checkout-item.styles';
+import { CollectionItemNameComponent, CollectionItemPriceComponent } from '../collection-item/collection.-item.styles';
 import { addItem, clearItemFromCart, removeItem } from '../../redux/cart/cart.actions';
 
 const CheckoutItem = ({ cartItem, clearItem, add, remove }) => {
     const { name, imageUrl, quantity, price } = cartItem;
     return (
-        <div className='checkout-item'>
-            <div className='image-container'>
+        <CheckoutItemComponent>
+            <ImageContainerComponent>
                 <img src={imageUrl} alt="item" />
-            </div>
-            <span className='name'>{name}</span>
-            <span className='quantity'>
-                <div className='arrow' onClick={() => {
+            </ImageContainerComponent>
+            <CollectionItemNameComponent style={{ width: "23%" }}>{name}</CollectionItemNameComponent>
+            <QuantityComponent>
+                <ArrowComponent onClick={() => {
                     cartItem.quantity > 1 ? remove(cartItem)
                         :
                         clearItem(cartItem)
-                }}>&#10094;</div>
-                <span className='value'>{quantity}</span>
-                <div className='arrow' onClick={() => add(cartItem)}>&#10095;</div>
-            </span>
-            <span className='price'>{price}</span>
-            <div className='remove-button' onClick={() => clearItem(cartItem)}>&#10005;</div>
-        </div>
+                }}>&#10094;</ArrowComponent>
+                <ValueComponent>{quantity}</ValueComponent>
+                <ArrowComponent onClick={() => add(cartItem)}>&#10095;</ArrowComponent>
+            </QuantityComponent>
+            <CollectionItemPriceComponent style={{ width: "23%" }}>{price}</CollectionItemPriceComponent>
+            <RemoveButtonComponent onClick={() => clearItem(cartItem)}>&#10005;</RemoveButtonComponent>
+        </CheckoutItemComponent>
 
     )
 }
