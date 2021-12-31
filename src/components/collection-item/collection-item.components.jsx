@@ -7,7 +7,7 @@ import { CollectionItemFooterComponent, CollectionItemComponent, CollectionItemB
 const CollectionItem = ({ item, addItem }) => {
     const { id, name, price, imageUrl } = item
     return (
-        <CollectionItemComponent>
+        <CollectionItemComponent id={id}>
             <CollectionItemImageComponent style={{
                 backgroundImage: `url(${imageUrl})`
             }} />

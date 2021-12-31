@@ -5,6 +5,14 @@ import { TitleComponent } from '../../components/menu-item/menu-item.styles'
 import { connect } from 'react-redux'
 import { selectCollection } from '../../redux/shop/shop.selector'
 const CollectionPage = ({ collection }) => {
+    // useEffect(() => {
+    //     console.log('Subscribing')
+    //     const unsubscribeFromCollections = firestore.collection('collections').onSnapshot(snapshot => console.log(snapshot));
+    //     return () => {
+    //         console.log('Unsubscribing')
+    //         unsubscribeFromCollections();                        //Concept
+    //     }
+    // })
     const { title, items } = collection;
     return (
         <CollectionPageComponent>
