@@ -2,9 +2,17 @@ import React from 'react'
 import CollectionItem from '../../components/collection-item/collection-item.components'
 import { CollectionPageComponent, ItemsComponent } from './collection.styles'
 import { TitleComponent } from '../../components/menu-item/menu-item.styles'
-import { connect } from 'react-redux'
+import { useSelector } from 'react-redux'
+import { useParams } from 'react-router-dom'
+
+// import { connect } from 'react-redux'
 import { selectCollection } from '../../redux/shop/shop.selector'
-const CollectionPage = ({ collection }) => {
+const CollectionPage = () => {
+
+
+
+    const { collectionId } = useParams()
+    const collection = useSelector(selectCollection(collectionId))
     // useEffect(() => {
     //     console.log('Subscribing')
     //     const unsubscribeFromCollections = firestore.collection('collections').onSnapshot(snapshot => console.log(snapshot));
@@ -27,7 +35,9 @@ const CollectionPage = ({ collection }) => {
 }
 
 
-const mapStateToProps = (state, ownProps) => ({
-    collection: selectCollection(ownProps.match.params.collectionId)(state)
-})
-export default connect(mapStateToProps)(CollectionPage);
+// const mapStateToProps = (state, ownProps) => ({
+//     collection: selectCollection(ownProps.match.params.collectionId)(state)
+// })
+
+
+export default CollectionPage;

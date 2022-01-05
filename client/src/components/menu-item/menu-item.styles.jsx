@@ -5,9 +5,9 @@ const LargeComponent = css`
 height: 380px;
 `
 const sizeComponent = (props) => {
-    if (props.size === 'large') {
-        return LargeComponent;
-    }
+  if (props.size === 'large') {
+    return LargeComponent;
+  }
 }
 
 export const BackroundImageComponent = styled.div`
@@ -35,6 +35,7 @@ font-weight: bold;
 margin-bottom: 6px;
 font-size: 22px;
 color: #4a4a4a;
+cursor:pointer;
 `;
 
 export const SubTitleComponent = styled.span`

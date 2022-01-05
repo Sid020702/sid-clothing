@@ -42,7 +42,7 @@ const CheckoutPage = ({ cartItems, total }) => (
             <br />
             4242 4242 4242 4242 - Exp: 01/22 - CVV:123
         </TestWarningComponent>
-        <StripeCheckoutButton price={`Rs ${total}/-`} style={{ marginLeft: 'auto', marginTop: '50px' }} />
+        <StripeCheckoutButton price={total} style={{ marginLeft: 'auto', marginTop: '50px' }} />
     </CheckoutComponent>
 )
 
