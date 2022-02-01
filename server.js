@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
+const compression = require("compression");
 
 
 if (process.env.NODE_ENV !== 'production') {
@@ -12,6 +13,7 @@ const app = express();
 const port = process.env.PORT || 80;
 
 app.use(bodyParser.json());
+app.use(compression());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
