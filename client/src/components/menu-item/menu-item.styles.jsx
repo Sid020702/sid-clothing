@@ -15,6 +15,7 @@ width: 100%;;
 height: 100%;
 background-position: center;
 background-size: cover;
+ background-image: ${({ imageUrl }) => `url(${imageUrl})`};
 `;
 
 export const ContentComponent = styled.div`
@@ -65,16 +66,20 @@ overflow: hidden;
 
 &:hover{
   cursor: pointer;
-  ${BackroundImageComponent}{
+  & .background-image{
     transform: scale(1.1);
     transition: transform 6s cubic-bezier(0.25,0.45,0.45,0.95);
   }
 
-  ${ContentComponent}{
+  & .content{
     opacity: 0.9;
   }
 }
 
   ${sizeComponent}
+
+  @media screen and (max-width:800px){
+    height:200px
+  }
 `;
 
